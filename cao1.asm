@@ -28,3 +28,21 @@ syscall
 jal main
 li $v0, 10
 syscall
+#calculating no. of moves#
+loop:
+li $a2,2
+mult $a2 ,$a3
+mflo $a3
+sub $a1 ,$a1,1
+bgt $a1,1 ,loop
+sub $a1 ,$a3,1
+jal print 
+
+#printing no. of moves
+print:
+la $a0, output
+li  $v0, 4
+syscall
+move $a0 , $a1
+li , $v0,1
+syscall
